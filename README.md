@@ -1,5 +1,9 @@
 # demo-fluent-kinesis
 
+## install yarn
+```
+npm install --global yarn
+```
 ## packages
 ```
 yarn add -D @types/node fluent-logger nodemon prettier ts-node typescript
