@@ -32,3 +32,16 @@ sudo td-agent -c /etc/td-agent/td-agent.conf
 sudo vim  /etc/td-agent/td-agent.conf
 ```
 
+td-agent.conf
+```td-agent.conf
+<source>
+  @type forward
+  port 24226
+</source>
+<match demo-fluent-kinesis.**>
+  @type kinesis_firehose
+  delivery_stream_name fluentdFirehose 
+  region us-east-1
+</match>
+```
+

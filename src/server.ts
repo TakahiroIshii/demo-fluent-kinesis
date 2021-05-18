@@ -20,7 +20,7 @@ const main = async () => {
     const date = new Date();
     const record = `${date.toLocaleString()}, system log test`;
     console.log(record);
-    logger.emit("label", { record });
+    logger.emit("systemLog", { record });
   });
 };
 
