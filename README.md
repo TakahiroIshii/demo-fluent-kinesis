@@ -7,6 +7,18 @@ npm install --global yarn
 yarn
 ```
 
+## start
+
+```
+yarn fluent:get
+yarn fluent:kinesis
+yarn fluent:update
+yarn instanceid:set
+yarn attachrole
+yarn fluent:start
+yarn start NUMBER
+```
+
 ## fluentd agent
 
 fluentd agent for Amazon Linux
@@ -36,9 +48,4 @@ sudo td-agent -c /etc/td-agent/td-agent.conf
 
 ```
 sudo vim /etc/td-agent/td-agent.conf
-```
-## start 
-
-```
-yarn start NUMBER
 ```
