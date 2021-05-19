@@ -50,6 +50,10 @@ td-agent.conf
   @type kinesis_firehose
   delivery_stream_name fluentdFirehose 
   region us-east-1
+  <buffer time>
+    timekey 1s
+    timekey_wait 0s
+  </buffer>
 </match>
 ```
 
