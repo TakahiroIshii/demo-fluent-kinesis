@@ -6,7 +6,12 @@
   "author": "Takahiro Ishii <itkh@amazon.com>",
   "license": "MIT",
   "scripts": {
-    "start": "yarn nodemon -r ts-node/register src/server.ts"
+    "start": "yarn nodemon -r ts-node/register src/server.ts",
+    "fluent:start": "sudo service td-agent start",
+    "fluent:stop": "sudo service td-agent stop",
+    "fluent:update": "sudo mv td-agent.conf /etc/td-agent/td-agent.conf",
+    "fluent:kinesis": "sudo td-agent-gem install fluent-plugin-kinesis",
+    "fluent:get": "curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent4.sh | sh"
   },
   "devDependencies": {
     "@types/node": "^15.3.0",
