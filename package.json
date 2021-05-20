@@ -12,7 +12,6 @@
     "fluent:update": "sudo cp td-agent.conf /etc/td-agent/td-agent.conf",
     "fluent:kinesis": "sudo td-agent-gem install fluent-plugin-kinesis",
     "fluent:get": "curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent4.sh | sh",
-    "instanceid:set": "export INSTANCEID=$(curl 169.254.169.254/latest/meta-data/instance-id/)",
     "attachrole": "aws ec2 associate-iam-instance-profile --iam-instance-profile Name=$ROLENAME --instance-id $INSTANCEID"
   },
   "devDependencies": {
