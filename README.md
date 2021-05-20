@@ -13,9 +13,9 @@ yarn
 yarn fluent:get
 yarn fluent:kinesis
 yarn fluent:update
-# set instance id
+# set instance id and associate role
 export INSTANCEID=$(curl 169.254.169.254/latest/meta-data/instance-id/)
-ROLENAME=ROLENAME yarn attachrole
+ROLENAME=role-name yarn associate
 yarn fluent:start
 yarn start NUMBER
 ```
