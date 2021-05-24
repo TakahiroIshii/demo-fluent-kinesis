@@ -7,15 +7,26 @@ npm install --global yarn
 yarn
 ```
 
+## set up
+Make sure to create kinesis firehose first.
+Also update td-agent.conf file with proper stream name and region.
+
+```
+# get fluentd agent
+yarn fluent:get
+# get fluent plugin for kinesis
+yarn fluent:kinesis
+# edit td-agent.conf file and copy it to actual config file
+yarn fluent:update
+# get instance id
+export INSTANCEID=$(curl 169.254.169.254/latest/meta-data/instance-id/)
+# pass pre-made role and associate it to cloud9 instance
+ROLENAME=your-role-name yarn associate
+```
+
 ## start
 
 ```
-yarn fluent:get
-yarn fluent:kinesis
-yarn fluent:update
-# set instance id and associate role
-export INSTANCEID=$(curl 169.254.169.254/latest/meta-data/instance-id/)
-ROLENAME=role-name yarn associate
 yarn fluent:start
 yarn start NUMBER
 ```

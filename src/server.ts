@@ -1,5 +1,5 @@
 import Aigle from "aigle";
-const logger = require("fluent-logger");
+import * as logger from "fluent-logger";
 
 logger.configure("demo-fluent-kinesis", {
   host: "localhost",
@@ -8,23 +8,21 @@ logger.configure("demo-fluent-kinesis", {
   reconnectInterval: 600000,
 });
 
-const sleep = (ms) => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-};
-
-const main = async () => {
-  const myArgs = process.argv.slice(2);
-  const num = Number(myArgs[0]);
-  await Aigle.timesSeries(num, async () => {
-    await sleep(2000);
-    const date = new Date();
-    const record = `${date.toLocaleString()}, system log test`;
+async function main() {
+  const [num] = process.argv.slice(2);
+  await Aigle.timesSeries(Number(num), async () => {
+    await Aigle.delay(2000);
+    const record = `${new Date().toLocaleString()}, system log test`;
     console.log(record);
     logger.emit("systemLog", { record });
   });
-};
+}
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+(async () => {
+  try {
+    await main();
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+})();
